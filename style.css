@@ -1,0 +1,284 @@
+/* CSS Code Goes Here */
+:root {
+  --primary-color: #0078d7;
+  --primary-hover-color: #005fa3;
+  --background-color: #a3a3f0;
+  --text-color: #333;
+  --heading-color: #222;
+  --container-bg: #fff;
+  --border-radius-lg: 12px;
+  --border-radius-md: 8px;
+  --border-radius-sm: 6px;
+  --shadow: 0 0 20px rgba(0,0,0,0.1);
+  --navbar-bg: #222;
+  --navbar-text-color: white;
+  --navbar-link-hover: #00bcd4; /* لون جديد للينكات في الهوفر */
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: var(--background-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  /* ده الكلاس اللي هيعمل الترانزيشن */
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* لما الصفحة تكون بتطلع (بتتلاشى) */
+body.fade-out {
+  opacity: 0;
+}
+
+/* لما الصفحة تكون بتدخل (بتظهر) */
+body.fade-in {
+  opacity: 1;
+}
+
+
+/* ستايل الشريط العلوي */
+.navbar {
+  background-color: var(--navbar-bg);
+  color: var(--navbar-text-color);
+  padding: 15px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  width: 100%;
+  box-sizing: border-box;
+  flex-wrap: wrap; /* عشان ينزلوا سطر جديد في الشاشات الصغيرة */
+  gap: 15px; /* مسافة بين العناصر */
+}
+
+.navbar-brand .logo-link {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: var(--navbar-text-color);
+  text-decoration: none;
+  white-space: nowrap; /* عشان متتكسرش في سطرين */
+}
+
+.navbar-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px; /* مسافة بين اللينكات */
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.navbar-links li a {
+  color: var(--navbar-text-color);
+  text-decoration: none;
+  font-size: 1.1em;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+.navbar-links li a:hover {
+  color: var(--navbar-link-hover);
+}
+
+.navbar-icons {
+    display: flex;
+    gap: 15px; /* مسافة بين الأيقونات */
+}
+
+.navbar-icons .icon-link {
+    display: flex; /* عشان الأيقونة تبقى في نص اللينك */
+    align-items: center;
+    justify-content: center;
+    width: 30px; /* حجم مربع الأيقونة */
+    height: 30px;
+    border-radius: 50%; /* عشان تبقى دايرة */
+    background-color: rgba(255, 255, 255, 0.1); /* خلفية خفيفة */
+    transition: background-color 0.3s ease;
+}
+
+.navbar-icons .icon-link:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.navbar-icons .icon {
+    width: 20px; /* حجم الأيقونة نفسها */
+    height: 20px;
+    filter: invert(100%); /* عشان الأيقونات تبقى بيضا لو هي سودا أصلاً */
+}
+
+
+/* باقي أكواد الـ CSS بتاعتك */
+.container {
+  max-width: 700px;
+  width: 90%;
+  margin: 40px auto;
+  text-align: center;
+  padding: 30px;
+  background: var(--container-bg);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow);
+}
+
+h1 {
+  margin-bottom: 25px;
+  color: var(--heading-color);
+  font-size: 2em;
+}
+
+.selector, .uploader {
+  margin: 25px 0;
+}
+
+.selector button {
+  margin: 10px;
+  padding: 12px 25px;
+  font-size: 19px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.selector button:hover {
+  background-color: var(--primary-hover-color);
+  transform: translateY(-2px);
+}
+
+.avatar-display {
+  margin-top: 40px;
+  position: relative;
+  height: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9f9f9;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+}
+
+.avatar-display img {
+  max-height: 100%;
+  max-width: 100%;
+  display: none;
+  transition: opacity 0.5s ease;
+  border-radius: var(--border-radius-lg);
+  object-fit: contain;
+}
+
+input[type="file"] {
+  font-size: 16px;
+  padding: 10px;
+  border-radius: var(--border-radius-sm);
+  border: 1px solid #ccc;
+  width: calc(100% - 22px);
+  max-width: 300px;
+  margin-top: 10px;
+  transition: border-color 0.3s ease;
+}
+
+input[type="file"]:hover {
+  border-color: var(--primary-color);
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* العناصر تحت بعض في الشاشات الصغيرة */
+        align-items: flex-start;
+    }
+    .navbar-links {
+        width: 100%;
+        justify-content: space-around; /* توزيع اللينكات بالتساوي */
+        margin-top: 15px;
+    }
+    .navbar-icons {
+        width: 100%;
+        justify-content: center;
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    padding: 10px 15px;
+  }
+  .navbar-brand {
+    font-size: 1.5em;
+  }
+  .container {
+    margin: 30px auto;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 1.6em;
+  }
+
+  .selector button {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+
+  .avatar-display {
+    height: 350px;
+    margin-top: 30px;
+  }
+}
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.product-card {
+  background: #fff;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow);
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card img {
+  max-width: 100%;
+  border-radius: var(--border-radius-sm);
+  height: 200px;
+  object-fit: cover;
+}
+
+.product-card h3 {
+  margin: 15px 0 10px;
+  font-size: 1.1em;
+  color: var(--heading-color);
+}
+
+.product-card p {
+  color: #444;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.product-card button {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 10px 18px;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  font-size: 0.95em;
+  transition: background-color 0.3s ease;
+}
+
+.product-card button:hover {
+  background-color: var(--primary-hover-color);
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}

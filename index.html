@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>متجر الملابس</title> <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="navbar-brand">
+        <a href="#" class="logo-link"> Yazan Store  👗</a> </div>
+    <ul class="navbar-links">
+      <li><a href="index.html">الرئيسية</a></li> <li><a href="men.html">رجالي</a></li> <li><a href="women.html">حريمي</a></li> <li><a href="kids.html">أطفال</a></li> <li><a href="accessories.html">إكسسوارات</a></li> <li><a href="contact.html">تواصل معنا</a></li> </ul>
+    <div class="navbar-icons">
+        <a href="#" class="icon-link"><img src="images/search-icon.png" alt="بحث" class="icon"></a> <a href="#" class="icon-link"><img src="images/cart-icon.png" alt="سلة التسوق" class="icon"></a> <a href="#" class="icon-link"><img src="images/user-icon.png" alt="حسابي" class="icon"></a> </div>
+  </nav>
+
+  <div class="container">
+    <h1>اختر الشخصية أو ارفع صورتك لتجربة الملابس</h1>
+    
+    <div class="selector">
+      <button onclick="showAvatar('male')">ذكر 🧑</button>
+      <button onclick="showAvatar('female')">أنثى 👩</button>
+    </div>
+
+    <div class="uploader">
+      <label for="file-upload">أو ارفع صورتك: 📸</label><br />
+      <input type="file" id="file-upload" accept="image/*" onchange="previewAvatar(event)">
+    </div>
+
+    <div class="avatar-display">
+      <img id="male-avatar" src="images/male-avatar.png" alt="صورة رمزية لشخص ذكر" />
+      <img id="female-avatar" src="images/female-avatar.png" alt="صورة رمزية لشخص أنثى" />
+      <img id="custom-avatar" alt="الصورة الشخصية المرفوعة" />
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
